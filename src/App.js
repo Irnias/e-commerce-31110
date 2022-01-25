@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import "./App.css";
 import { ClassComponent } from "./components/class-component/ClassComponent";
 import ComponentChildren from "./components/component-children/ComponentChildren";
@@ -10,6 +11,8 @@ import CartIcon from "./icon/CartIcon";
 const age = 18;
 
 function App() {
+  const [showFunctionComponent, setShowFunctionComponent] = useState(true);
+
   return (
     <div className="App">
       <NavBar />
@@ -17,7 +20,11 @@ function App() {
       <hr />
       <ClassComponent age={age} name="Rodolfo" />
       <hr />
-      <FunctionalComponent age={age} name="Mateo" />
+      {showFunctionComponent && <FunctionalComponent age={age} name="Mateo" />}
+      <button onClick={() => setShowFunctionComponent(!showFunctionComponent)}>
+        Eliminar componente funcional
+      </button>
+      {/* <FunctionalComponent age={age} name="Alejandro" /> */}
       <CartIcon />
       <hr />
       <ItemListContainer />
