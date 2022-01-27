@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const ItemCounter = ({ stock }) => {
+const ItemCounter = ({ stock, setSotckSelected }) => {
   const [counter, setCounter] = useState(0);
-  const [currentTimes, setCurrentTimes] = useState(0);
-  const [currentDate, setCurrentDate] = useState("");
+
+  useEffect(() => {
+    setSotckSelected(counter);
+  }, [counter]);
 
   const minusCounter = () => {
     if (counter <= 0) return;
@@ -15,26 +17,13 @@ const ItemCounter = ({ stock }) => {
     setCounter(counter + 1);
   };
 
-  const takeMe = () => {
-    setCurrentTimes(currentTimes + 1);
-    const today = new Date();
-    setCurrentDate(
-      `Hoy es ${today.getFullYear()}-${
-        today.getMonth() + 1
-      }-${today.getDate()}, y son las ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()} en mi país :P`
-    );
-  };
-
   return (
     <>
       <div>
-        <h3>Me han tocado {currentTimes} veces! :O</h3>
-        <h3>{currentDate}</h3>
         <button onClick={minusCounter}>-</button>
         <span>{counter}</span>
         <button onClick={plusCounter}>+</button>
       </div>
-      <button onClick={takeMe}>Tócame :D</button>
     </>
   );
 };
