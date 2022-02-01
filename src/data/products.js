@@ -7,6 +7,8 @@ export const products = [
   },
   {
     id: "2",
+    image:
+      "https://importacionesarturia.com/wp-content/uploads/2020/03/Apollo-Twin-X-Duo-PgBlanca-1.jpg",
     name: "Apollo Twin Duo",
     description: "La mejor interfaz del mundo",
     stock: 20,
