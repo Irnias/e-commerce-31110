@@ -4,6 +4,7 @@ export const products = [
     name: "iPhone X",
     description: "Ya ta viejo pero caro",
     stock: 10,
+    category: "phones",
   },
   {
     id: "2",
@@ -12,17 +13,29 @@ export const products = [
     name: "Apollo Twin Duo",
     description: "La mejor interfaz del mundo",
     stock: 20,
+    category: "audio-interfaces",
   },
   {
     id: "3",
     name: "Redmi Note 8",
     description: "El mejor celular del mundo",
     stock: 200,
+    category: "phones",
   },
   {
     id: "4",
     name: "Samsung Galaxy S10",
     description: "No se, no se, no se",
     stock: 15,
+    category: "phones",
+  },
+  {
+    id: "5",
+    name: "Nissan Navara",
+    image:
+      "https://soymotor.com/sites/default/files/imagenes/noticia/nissan-navara-2021-facelift-soymotor_0.jpg",
+    description: "No se, no se, no se",
+    stock: 15,
+    category: "cars",
   },
 ];
