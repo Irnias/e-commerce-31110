@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ItemCounter = ({ stock, setSotckSelected }) => {
+const ItemCounter = ({ stock, setSotckSelected,onAdd }) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const ItemCounter = ({ stock, setSotckSelected }) => {
         <span>{counter}</span>
         <button onClick={plusCounter}>+</button>
       </div>
+      
     </>
   );
 };

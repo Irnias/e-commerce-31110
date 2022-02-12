@@ -2,12 +2,21 @@ import { useParams } from "react-router-dom";
 import Item from "../item/Item";
 import iphoneXImage from "../../assets/images/iphonex.png";
 import useProducts from "../../hooks/useProducts";
+import { UserAuthContext } from "../../context/UserAuthContext";
+import { useContext } from "react";
 
 const ItemListContainer = () => {
   const { id } = useParams();
   const { products } = useProducts();
+  const { isLogged } = useContext(UserAuthContext);
 
   const filterProducts = products.filter(({ category }) => category === id);
+
+  if(!isLogged){
+    return(
+      <h1>Logueate por favor</h1>
+    )
+  }
 
   return (
     <div>

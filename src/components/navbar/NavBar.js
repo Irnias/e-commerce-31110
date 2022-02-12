@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
+import { UserAuthContext } from "../../context/UserAuthContext";
 import CartIcon from "../../icon/CartIcon";
 import "./NavBar.css";
 
@@ -7,6 +9,13 @@ const NavBar = () => {
   const activeStyle = {
     color: "red",
   };
+  const handleLoggin = () => {
+    setIsLogged(true);
+  }
+  const handleUnloggin = () => {
+    setIsLogged(false);
+  }
+  const { isLogged, setIsLogged } =useContext(UserAuthContext);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -68,6 +77,8 @@ const NavBar = () => {
                 </NavLink>
               </NavDropdown.Item>
             </NavDropdown>
+            {isLogged ? <button onClick={handleUnloggin}>deslogueate</button> : ''}
+            {!isLogged ? <button onClick={handleLoggin}>Logueate</button> : ''}
           </Nav>
         </Navbar.Collapse>
         <NavLink to="/cart">

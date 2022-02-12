@@ -5,10 +5,23 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
-  const addItem = (currentItem) => {
-    if (items.some(({ item }) => item.id === currentItem.item.id)) return;
-    setItems([...items, currentItem]);
+  const addItem = (currentItem, cant) => {
+
+    const indice = isInCart(currentItem);
+
+    if (indice === -1){
+      setItems([...items, {currentItem, cant}]);
+    }else{
+      let updateCard = [...items];
+      updateCard[indice].cant = cant;
+      setItems(updateCard);
+    }
   };
+
+  const isInCart = (itemNuevo) => {
+    const item = items.find( item => item.id === itemNuevo.id);
+    return items.indexOf(item);
+  }
 
   return (
     <CartContext.Provider
